@@ -1,0 +1,177 @@
+.app {
+  width: 90%;
+  margin: auto;
+  background-color: rgb(252, 252, 254);
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.main {
+  position: relative;
+  top: 100px;
+  display: flex;
+  flex-direction: row;
+}
+.logo {
+  padding: 5px 20px;
+}
+
+.navbar {
+  position: fixed;
+  width: 90%;
+  display: flex;
+  min-height: 30px;
+  background-color: white;
+  border-bottom:1px solid rgb(3, 16, 79);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 999;
+}
+.navbar__links {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 10px;
+}
+
+.header__icons {
+  display: flex;
+
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.social__icons {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.banner {
+  position: relative;
+  top: 80px;
+  background: rgb(70, 76, 252);
+  background: radial-gradient(circle, rgb(87, 93, 247) 0%, rgb(3, 16, 79) 100%);
+  display: flex;
+  min-height: 300px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.left {
+  width: 50%;
+}
+
+.banner__img {
+  position: relative;
+  animation: bannerleft 1s ease-in-out;
+}
+
+.right {
+  width: 50%;
+  color: white;
+  text-align: left;
+  padding: 20px 50px;
+}
+
+.right__title {
+  font-size: 40px;
+  font-weight: 900;
+  padding: 10px 0;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.right__subtitle {
+  font-size: 24px;
+  padding: 10px 0;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  animation: bannerright 1s ease-in;
+}
+
+.right__text {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: normal;
+  padding: 20px 0;
+  animation: bannerright 1s ease-in;
+}
+
+.right button, .cars__button, .newcar__button {
+  background-color: rgb(14, 37, 152);
+  color: white;
+  padding: 7px 20px;
+}
+
+.cars {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 60px;
+  color: red;
+  text-align: center;
+  top: 20px;
+}
+
+.newcar {
+  width: 30%;
+  padding: 20px 30px 0 30px;
+}
+
+.cars__addcar--input {
+  display: flex;
+}
+
+.newcar h1 {
+  padding-bottom: 50px;
+}
+
+.newcar__title {
+  color:rgb(3, 16, 79);
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+
+.newcar__input {
+  width: 90%;
+  height: 40px;
+  background: rgb(243, 243, 243);
+  border: 0 solid black;
+  border-bottom: 1px black solid;
+  margin-bottom: 40px;
+}
+
+.newcar__button {
+  margin-top: 30px;
+}
+.cars__card {
+    width: 250px;
+    height: 100px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(206, 138, 138, 0.1);
+  }
+
+.cars__card--title {
+  color: red;
+}
+
+
+
+@keyframes bannerleft {
+  from {
+    left: -400px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes bannerright {
+  from {
+    right: 100px;
+  }
+  to {
+    right: 100px;
+  }
+}
