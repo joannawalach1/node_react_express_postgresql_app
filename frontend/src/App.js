@@ -2,6 +2,7 @@ import React from "react";
 import Home from './pages/Home.jsx';
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import {
     Route,
@@ -18,6 +19,7 @@ const App = () => {
 <Route path="/" element={<Home />}/>
 <Route path="/login" element={<Login/>}/>
 <Route path="/register" element={<Register />}/>
+<Route path="/dashboard" element={<Dashboard />}/>
 <Route path="/cars/:id" element={<AllCars />}/>
 <Route path="/notfound" element={<NotFound />}/>
 </Routes>

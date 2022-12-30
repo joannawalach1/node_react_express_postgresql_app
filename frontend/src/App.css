@@ -22,7 +22,7 @@
   display: flex;
   min-height: 30px;
   background-color: white;
-  border-bottom:1px solid rgb(3, 16, 79);
+  border-bottom: 1px solid rgb(3, 16, 79);
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
@@ -96,10 +96,16 @@
   animation: bannerright 1s ease-in;
 }
 
-.right button, .cars__button, .newcar__button {
+.right button,
+.cars__button,
+.newcar__button,
+.cars__addcar--button,
+.register__button, 
+.login__button {
   background-color: rgb(14, 37, 152);
   color: white;
-  padding: 7px 20px;
+  border: 1px white solid;
+  padding: 7px 15px;
 }
 
 .cars {
@@ -109,7 +115,6 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 60px;
-  color: red;
   text-align: center;
   top: 20px;
 }
@@ -119,16 +124,12 @@
   padding: 20px 30px 0 30px;
 }
 
-.cars__addcar--input {
-  display: flex;
-}
-
 .newcar h1 {
   padding-bottom: 50px;
 }
 
 .newcar__title {
-  color:rgb(3, 16, 79);
+  color: rgb(3, 16, 79);
   font-size: 20px;
   text-transform: uppercase;
   padding-bottom: 20px;
@@ -146,17 +147,52 @@
 .newcar__button {
   margin-top: 30px;
 }
-.cars__card {
-    width: 250px;
-    height: 100px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(206, 138, 138, 0.1);
-  }
 
-.cars__card--title {
-  color: red;
+.cars__block {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.cars__card {
+  width: 250px;
+  height: 200px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2),
+    0 3px 5px 0 rgba(206, 138, 138, 0.1);
 }
 
+.cars__card--title {
+  padding-bottom: 20px;
+}
 
+.cars__card--name,
+.cars__card--price {
+  padding-bottom: 20px;
+}
+
+.register, .login {
+  min-width: 400px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 100px;
+}
+
+.register__input, .login__input {
+  background-color: rgb(242, 241, 241);
+  border: 0;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  margin: 30px 0;
+}
+
+.register__label, .login__label {
+  padding-right: 30px;
+}
+
+.footer {
+  text-align: center;
+}
 
 @keyframes bannerleft {
   from {
