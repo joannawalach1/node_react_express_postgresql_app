@@ -22,9 +22,9 @@ const NewUser = () => {
     e.preventDefault();
     axios
       .post("http://localhost:4000/register/", {
-        username: username,
-        email: email,
-        password: password,
+        user_name: username,
+        user_email: email,
+        user_password: password,
       })
       .then((res) => {
         console.log("Posting data", res);

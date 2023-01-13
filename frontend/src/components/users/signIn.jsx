@@ -10,14 +10,14 @@ function SignIn(props) {
     e.preventDefault();
     axios
       .post("http://localhost:4000/login/", {
-        username: username,
-        password: password,
+        user_name: username,
+        user_password: password,
       })
       .then((response) => {
-        console.log(response.data);
+        console.log('user logged in');
         setStatus(response.data.rows[0].username);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.log('error','user not found'));
   };
 
   return (

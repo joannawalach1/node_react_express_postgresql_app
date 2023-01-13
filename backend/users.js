@@ -19,11 +19,11 @@ const getUsers = (request, response) => {
 };
 
 const createUser = (request, response) => {
-  const { username, email, password } = request.body;
+  const { user_name, user_email, user_password } = request.body;
 
   pool.query(
-    "INSERT INTO users (username, email, password) VALUES($1, $2, $3) RETURNING *",
-    [username, email, password],
+    "INSERT INTO users (user_name, user_email, user_password) VALUES($1, $2, $3) RETURNING *",
+    [user_name, user_email, user_password],
     (error, results) => {
       if (error) {
         throw error;
@@ -34,17 +34,17 @@ const createUser = (request, response) => {
 };
 
 const loginUser = (request, response) => {
-  const { username, password } = request.body;
+  const { user_name, user_password } = request.body;
   pool.query(
-    "SELECT * FROM users WHERE username=$1 AND password=$2",
-    [username, password],
+    "SELECT * FROM users WHERE user_name=$1 AND user_password=$2",
+    [user_name, user_password],
     (error, result) => {
       if (error) {
         throw error;
       }
 
       if (result) {
-        response.send(result);
+        console.log("user logged in")
       } else {
         response.send({ message: "no user found" });
       }
