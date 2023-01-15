@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function SignIn(props) {
+function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
@@ -9,15 +9,17 @@ function SignIn(props) {
   const signUser = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/login/", {
+      .post("http://localhost:4000/login", {
         user_name: username,
         user_password: password,
       })
       .then((response) => {
-        console.log('user logged in');
-        setStatus(response.data.rows[0].username);
-      })
-      .catch((error) => console.log('error','user not found'));
+        if (response.data.message) {
+          setStatus(response.data.message);
+        } else {
+          setStatus(response.data[0].user_name);
+        }
+      });
   };
 
   return (
@@ -56,8 +58,8 @@ function SignIn(props) {
         <p>
           Jeśli nie posiadasz konta <a href="/login">Register</a>
         </p>
+        <p>{status}</p>
       </form>
-      <p>{status}</p>
     </div>
   );
 }

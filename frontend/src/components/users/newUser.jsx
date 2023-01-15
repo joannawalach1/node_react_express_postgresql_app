@@ -1,36 +1,26 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const NewUser = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [users, setUser] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:4000/users/")
-      .then((res) => {
-        console.log("Getting from", res.data);
-        setUser(res.data);
-      })
-      .catch((error) => console.error(error));
-  }, []);
+  const [status, setStatus] = useState("");
 
   const postUser = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/register/", {
+      .post("http://localhost:4000/register", {
         user_name: username,
         user_email: email,
         user_password: password,
       })
       .then((res) => {
-        console.log("Posting data", res);
-
+        if (res.data.message) {
+          setStatus(res.data.message);
+        } else setStatus("Registration succesful");
       })
-      .catch((error) => console.error(error));
   };
 
   return (
@@ -84,9 +74,10 @@ const NewUser = () => {
         <p>
           Jeśli posiadasz konto <a href="/login">Login</a>
         </p>
+        <p>{status}</p>
       </div>
     </div>
   );
 };
 
-export { NewUser };
+export default NewUser;

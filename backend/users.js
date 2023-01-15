@@ -28,7 +28,7 @@ const createUser = (request, response) => {
       if (error) {
         throw error;
       }
-      response.status(201).send(`User added with ID: ${results.rows[0].id}`);
+      response.status(201).send(`User added with ID: ${results.rows[0].user_name}`);
     }
   );
 };
@@ -41,14 +41,13 @@ const loginUser = (request, response) => {
     (error, result) => {
       if (error) {
         throw error;
-      }
-
-      if (result) {
-        console.log("user logged in")
       } else {
-        response.send({ message: "no user found" });
+              if (result.length>0) {
+      response.send(result)
+      } else response.send({message: "wrong username or password"})
       }
     }
   );
 };
+
 export { getUsers, createUser, loginUser };

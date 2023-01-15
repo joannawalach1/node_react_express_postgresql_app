@@ -1,6 +1,6 @@
 import React from "react";
 import Layouts from "../components/Layouts";
-import { NewUser } from "./../components//users/newUser.jsx";
+import NewUser from "../components/users/newUser";
 
 const Register = () => {
   return (
