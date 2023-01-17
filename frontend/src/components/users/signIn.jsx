@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function SignIn() {
-  const [username, setUsername] = useState("");
+  const [name, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
 
@@ -10,17 +10,19 @@ function SignIn() {
     e.preventDefault();
     axios
       .post("http://localhost:4000/login", {
-        user_name: username,
-        user_password: password,
+        name: name,
+        password: password,
       })
       .then((response) => {
-        if (response.data.message) {
+        if (response.data.message||null) {
           setStatus(response.data.message);
         } else {
-          setStatus(response.data[0].user_name);
-        }
-      });
-  };
+          setStatus("login succesfull OK");
+          setStatus(response.data[0].email)
+        } 
+      })
+      .catch((error) => setStatus(error))
+  }
 
   return (
     <div className="login">
@@ -33,7 +35,7 @@ function SignIn() {
           <input
             className="login__input"
             type="text"
-            name="login"
+            name="user_login"
             placeholder="login"
             autoComplete="on"
             onChange={(e) => setUsername(e.target.value)}
@@ -45,8 +47,8 @@ function SignIn() {
           </label>
           <input
             className="login__input"
-            type="password"
-            name="password"
+            type="text"
+            name="user_password"
             placeholder="password"
             autoComplete="on"
             onChange={(e) => setPassword(e.target.value)}

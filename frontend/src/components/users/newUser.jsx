@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const NewUser = () => {
-  const [username, setUsername] = useState("");
+  const [name, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
@@ -12,9 +12,9 @@ const NewUser = () => {
     e.preventDefault();
     axios
       .post("http://localhost:4000/register", {
-        user_name: username,
-        user_email: email,
-        user_password: password,
+        name: name,
+        email: email,
+        password: password,
       })
       .then((res) => {
         if (res.data.message) {
