@@ -4,13 +4,14 @@ import { addName } from "./utils.jsx";
 function NewCar() {
   const [name, setName] = useState("");
 
-  function handleUpdate(evt) {
+  const handleUpdate = (evt) => {
     setName(evt.target.value);
   }
 
   async function handleAddName(evt) {
     await addName(name);
   }
+
 
   return (
     <div className="newcar">
