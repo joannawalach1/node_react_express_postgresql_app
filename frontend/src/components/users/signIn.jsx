@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 function SignIn() {
   const [name, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
+  const navigate = useNavigate();
 
   const signUser = (e) => {
     e.preventDefault();
@@ -18,7 +20,8 @@ function SignIn() {
           setStatus(response.data.message);
         } else {
           setStatus("login succesfull OK");
-          setStatus(response.data[0].email)
+          setStatus(response.data[0].email);
+          navigate('/dashboard');
         } 
       })
       .catch((error) => setStatus(error))

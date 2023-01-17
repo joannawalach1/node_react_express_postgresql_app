@@ -1,4 +1,7 @@
 import React from "react";
+import Layouts from "../components/Layouts.jsx";
+import AllCars from "../components/cars/allCars.jsx";
+import NewCar from "../components/cars/newCar";
 
 const Dashboard = (props) => {
   const handleLogout = () => {
@@ -7,8 +10,10 @@ const Dashboard = (props) => {
   return (
     <div>
       Welcome User!
-      <br />
-      <br />
+      <Layouts>
+        <NewCar />
+        <AllCars />
+      </Layouts>
       <input type="button" onClick={handleLogout} value="Logout" />
     </div>
   );
