@@ -9,7 +9,7 @@ const FilteredCampers = () => {
     const result = await axios.get(`http://localhost:4000/cars`);
     setData(result.data);
     console.log(query);
-    console.log(data.filter(car => car.car_name.includes("asssssss")));
+    console.log(data.filter(car => car.car_name.includes(query)));
   };
 
   return (
